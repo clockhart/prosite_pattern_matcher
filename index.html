@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prosite Pattern Matcher</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; }
+        input { width: 100%; max-width: 400px; }
+        button { margin-top: 10px; }
+        #results { margin-top: 20px; }
+/* Add in your <style> section */
+ul {
+    list-style: none;
+    padding: 0;
+}
+li {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+strong {
+    color: #333;
+}
+    </style>
+</head>
+<body>
+    <h1>Prosite Pattern Matcher</h1>
+    <p>Enter a Prosite-style pattern to find matching patterns:</p>
+    <input 
+        type="text" 
+        id="patternInput" 
+        placeholder="Enter Prosite pattern (e.g., [AG]-x-V)" 
+        onkeydown="if (event.key === 'Enter') findMatches();">
+    <button onclick="findMatches()">Find Matches</button>
+    <div id="results"></div>
+    <script src="patterns.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
+
