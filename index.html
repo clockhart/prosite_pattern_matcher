@@ -4,40 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prosite Pattern Matcher</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 800px; margin: 20px auto; }
-        input { width: 100%; max-width: 400px; }
-        button { margin-top: 10px; }
-        #results { margin-top: 20px; }
-/* Add in your <style> section */
-ul {
-    list-style: none;
-    padding: 0;
-}
-li {
-    margin: 10px 0;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #f9f9f9;
-}
-strong {
-    color: #333;
-}
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Prosite Pattern Matcher</h1>
-    <p>Enter a Prosite-style pattern to find matching patterns:</p>
-    <input 
-        type="text" 
-        id="patternInput" 
-        placeholder="Enter Prosite pattern (e.g., [AG]-x-V)" 
-        onkeydown="if (event.key === 'Enter') findMatches();">
-    <button onclick="findMatches()">Find Matches</button>
-    <div id="results"></div>
+    <main>
+        <h1><a href="./" id="home">Prosite Pattern <span>Matcher</span></a></h1>
+        <p class="tagline">Type a protein motif and find every PROSITE signature that can contain it.</p>
+
+        <form class="search" id="searchForm" autocomplete="off">
+            <input
+                type="text"
+                id="patternInput"
+                placeholder="Enter a PROSITE pattern"
+                aria-label="Prosite pattern"
+                autocapitalize="off"
+                spellcheck="false">
+            <button type="submit">Search</button>
+        </form>
+
+        <p class="examples">Try:
+            <button type="button" data-example="R-G-D">R-G-D</button>
+            <button type="button" data-example="[ST]-x-[RK]">[ST]-x-[RK]</button>
+            <button type="button" data-example="N-{P}-[ST]-{P}">N-{P}-[ST]-{P}</button>
+        </p>
+
+        <p class="error" id="error" role="alert" hidden></p>
+        <p id="summary" hidden></p>
+        <ul id="results"></ul>
+        <button type="button" id="showMore" hidden></button>
+        <footer id="release"></footer>
+    </main>
     <script src="patterns.js"></script>
+    <script src="matcher.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
